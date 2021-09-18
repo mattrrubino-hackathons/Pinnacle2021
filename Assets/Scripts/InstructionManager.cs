@@ -6,7 +6,7 @@ public class InstructionManager : MonoBehaviour
 {
     [SerializeField] GameObject[] instructionObjects;
     [SerializeField] float instructionYOffset = -0.5f;
-    GameObject instructionObject;
+    Instruction instruction;
 
     public void SpawnInstruction(int n)
     {
@@ -23,14 +23,19 @@ public class InstructionManager : MonoBehaviour
         Vector3 spawnPos = cam.position + new Vector3(cam.forward.x, instructionYOffset, cam.forward.z);
         Quaternion rotation = Quaternion.Euler(0f , camRot.y, 0f);
 
-        instructionObject = Instantiate(obj, spawnPos, rotation);
+        instruction = Instantiate(obj, spawnPos, rotation).GetComponent<Instruction>();
     }
 
     public void DestroyInstruction()
     {
-        if (instructionObject?.gameObject != null)
+        if (instruction)
         {
-            Destroy(instructionObject.gameObject);
+            Destroy(instruction.gameObject);
         }
+    }
+
+    public Instruction GetInstruction()
+    {
+        return instruction;
     }
 }

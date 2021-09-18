@@ -235,7 +235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instructionObjects:
-  - {fileID: 9019109765466053850, guid: a2816271ec6183d47a50ade0590c1214, type: 3}
+  - {fileID: 8505315750133299205, guid: c8198541ac3492f4195637aaf0880f50, type: 3}
+  instructionYOffset: -0.5
 --- !u!4 &29703109
 Transform:
   m_ObjectHideFlags: 0
@@ -639,7 +640,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6935256535494881725}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1317898059
+--- !u!65 &1317898063
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

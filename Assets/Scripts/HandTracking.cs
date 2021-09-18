@@ -7,12 +7,13 @@ public class HandTracking : MonoBehaviour
 {
     [SerializeField] float confidenceThreshold = 0.9f;
     MLHandTracking.HandKeyPose[] gestures = new MLHandTracking.HandKeyPose[2];
-
+    InstructionManager im;
     bool rightClosed, leftClosed;
-    bool pointing = false;
 
     void Start()
     {
+        im = FindObjectOfType<InstructionManager>();
+
         MLHandTracking.Start();
 
         gestures[0] = MLHandTracking.HandKeyPose.Fist;
@@ -69,11 +70,17 @@ public class HandTracking : MonoBehaviour
 
     public void OnRightClosed()
     {
-        Debug.Log("Right hand closed.");
+        Instruction instruction = im.GetInstruction();
+        instruction?.AnimationForward();
+
+        Debug.Log("Right closed");
     }
 
     public void OnLeftClosed()
     {
-        Debug.Log("Left hand closed.");
+        Instruction instruction = im.GetInstruction();
+        instruction?.AnimationBackward();
+
+        Debug.Log("Left closed");
     }
 }
