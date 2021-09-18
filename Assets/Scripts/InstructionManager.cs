@@ -16,8 +16,9 @@ public class InstructionManager : MonoBehaviour
         }
 
         GameObject obj = instructionObjects[n];
-        Vector3 spawnPos = new Vector3(0, 0, 1);
-        Quaternion rotation = Quaternion.identity;
+        Vector3 spawnPos = new Vector3(0, 0, 0);
+        Quaternion camRot = Camera.main.transform.rotation;
+        Quaternion rotation = Quaternion.Euler(0f, camRot.y, 0f);
 
         instructionObject = Instantiate(obj, spawnPos, rotation);
     }

@@ -12,19 +12,13 @@ public class Menu : MonoBehaviour
         im = FindObjectOfType<InstructionManager>();
     }
 
-    IEnumerator Start()
+    void Start()
     {
         ChangeMenu(0);
-
-        // For testing
-        yield return new WaitForSeconds(5);
-        OnFirstBuildPressed();
     }
 
     public void OnFirstBuildPressed()
     {
-        Debug.Log("First build pressed.");
-
         ChangeMenu(1);
         im.SpawnInstruction(0);
     }
@@ -42,5 +36,7 @@ public class Menu : MonoBehaviour
         }
 
         menus[n].SetActive(true);
+
+        im.DestroyInstruction();
     }
 }

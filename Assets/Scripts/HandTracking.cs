@@ -6,15 +6,17 @@ using UnityEngine.XR.MagicLeap;
 public class HandTracking : MonoBehaviour
 {
     [SerializeField] float confidenceThreshold = 0.9f;
-    MLHandTracking.HandKeyPose[] gestures = new MLHandTracking.HandKeyPose[1];
+    MLHandTracking.HandKeyPose[] gestures = new MLHandTracking.HandKeyPose[2];
 
     bool rightClosed, leftClosed;
+    bool pointing = false;
 
     void Start()
     {
         MLHandTracking.Start();
 
         gestures[0] = MLHandTracking.HandKeyPose.Fist;
+        gestures[1] = MLHandTracking.HandKeyPose.Finger;
 
         MLHandTracking.KeyPoseManager.EnableKeyPoses(gestures, true, false);
     }
