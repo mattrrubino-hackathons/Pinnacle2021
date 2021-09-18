@@ -21,7 +21,7 @@ public class InstructionManager : MonoBehaviour
 
         GameObject obj = instructionObjects[n];
         Vector3 spawnPos = cam.position + new Vector3(cam.forward.x, instructionYOffset, cam.forward.z);
-        Quaternion rotation = Quaternion.Euler(0f , camRot.y, 0f);
+        Quaternion rotation = Quaternion.Euler(0f , camRot.y + 90f, 0f);
 
         instruction = Instantiate(obj, spawnPos, rotation).GetComponent<Instruction>();
     }
