@@ -64,3 +64,6 @@ crashlytics-build.properties
 *.package
 *.mpk
 .out/
+
+# Keys
+/Signing/
