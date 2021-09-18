@@ -6,9 +6,11 @@ using UnityEngine.XR.MagicLeap;
 public class HandTracking : MonoBehaviour
 {
     [SerializeField] float confidenceThreshold = 0.9f;
+    [SerializeField] int bufferFrames = 10;
     MLHandTracking.HandKeyPose[] gestures = new MLHandTracking.HandKeyPose[2];
     InstructionManager im;
-    bool rightClosed, leftClosed;
+    int rightClosedCount = 0;
+    int leftClosedCount = 0;
 
     void Start()
     {
@@ -31,28 +33,28 @@ public class HandTracking : MonoBehaviour
     {
         if (GetGesture(MLHandTracking.Left, MLHandTracking.HandKeyPose.Fist))
         {
-            if (!leftClosed)
+            if (leftClosedCount == 0)
             {
                 OnLeftClosed();
             }
-            leftClosed = true;
+            leftClosedCount = bufferFrames;
         }
-        else
+        else if (leftClosedCount > 0)
         {
-            leftClosed = false;
+            leftClosedCount--;
         }
 
         if (GetGesture(MLHandTracking.Right, MLHandTracking.HandKeyPose.Fist))
         {
-            if (!rightClosed)
+            if (rightClosedCount == 0)
             {
                 OnRightClosed();
             }
-            rightClosed = true;
+            rightClosedCount = bufferFrames;
         }
-        else
+        else if (rightClosedCount > 0)
         {
-            rightClosed = false;
+            rightClosedCount--;
         }
     }
 
@@ -72,15 +74,11 @@ public class HandTracking : MonoBehaviour
     {
         Instruction instruction = im.GetInstruction();
         instruction?.AnimationForward();
-
-        Debug.Log("Right closed");
     }
 
     public void OnLeftClosed()
     {
         Instruction instruction = im.GetInstruction();
         instruction?.AnimationBackward();
-
-        Debug.Log("Left closed");
     }
 }

@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ea606dc82725845bb0b72ec2e6d963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationCount: 7
+  animationCount: 6
 --- !u!1001 &247667380122516425
 PrefabInstance:
   m_ObjectHideFlags: 0
