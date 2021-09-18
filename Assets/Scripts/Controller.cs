@@ -31,8 +31,6 @@ public class Controller : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit))
             {
-                Debug.Log(hit.transform.gameObject.name);
-
                 Button button = hit.transform.gameObject.GetComponent<Button>();
                 if (button != null)
                 {
