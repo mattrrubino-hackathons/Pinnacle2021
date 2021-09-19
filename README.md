@@ -7,4 +7,6 @@ Prism is a tool that assists users in constructing complex devices or objects. I
 ## Tools
 Prism is built for Magic Leap AR headsets, using Unity and the Lumin SDK.
 
-Starter code: https://developer.magicleap.com/en-us/learn/guides/1-1-unity-setup-with-template
+Starter Code: https://developer.magicleap.com/en-us/learn/guides/1-1-unity-setup-with-template
+
+Splash Screen Font: https://www.dafont.com/prism2.font
