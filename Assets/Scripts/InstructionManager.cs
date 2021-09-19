@@ -5,7 +5,7 @@ using UnityEngine;
 public class InstructionManager : MonoBehaviour
 {
     [SerializeField] GameObject[] instructionObjects;
-    [SerializeField] float instructionYOffset = -0.5f;
+    [SerializeField] float instructionYOffset = -0.3f;
     Instruction instruction;
 
     public void SpawnInstruction(int n)
